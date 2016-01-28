@@ -1,0 +1,81 @@
+
+// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// clearfix
+@mixin clearfix($extend: true) {
+  @if $extend {
+    @extend %clearfix;
+  } @else {
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+}
+ 
+%clearfix {
+  @include clearfix($extend: false);
+}
+
+// container for columns
+.row {
+  @include clearfix;
+}
+
+// mobile first columns
+.col {
+  float: left;
+}
+
+.row {
+  &ul li {
+    @extend .col;
+  }
+}
+
+.half {
+  width: 50%;
+}
+.fourth {
+  width: 25%;
+}
+.three-fourths {
+  width: 75%;
+}
+
+.third {
+  width: percentage( 1.0 / 3 );
+}
+.two-thirds {
+  width: percentage( 2.0 / 3 );
+}
+
+// Full size only grid, 12 columns
+// -> http://thephuse.com/development/build-responsive-websites-faster-with-sass
+
+$columns: 12;
+$middle-break-point: 600px / 16px * 1em;
+
+@media all and (min-width: $middle-break-point) {
+  .grid {
+    float: left;
+    &.right {
+      float: right;
+    }
+  }
+
+  @for $i from 1 through $columns {
+    .grid-#{$i}-#{$columns} {
+      @extend .grid;
+      width: $i * 100% / $columns;
+    }
+  }
+}
+

@@ -1,0 +1,119 @@
+/* colors */ 
+
+// pure color variables
+$blue: #00b8ff;
+$blue-alt: #06c;
+$gray: #555;
+$green: #8dd92e;
+$light-yellow: #ffd;
+$link-blue: #2a9dcc;
+$off-black: #2d2b22;
+$off-white: #f2f7fe;
+$orange: #fd971e;
+$peach: #f4b35b;
+$red: #dc1528;
+$yellow: #ffee00;
+
+$opacity: 0.88;
+
+// functional color variables
+$nav-background: $green;
+$nav-color: $off-black;
+$link-color: $blue;
+$link-hover: $yellow;
+$page-background: $off-white;
+$system-color: $off-black;
+$heading-color: $red;
+
+// assigning colors
+body {
+  background-color: $page-background;
+  color: $system-color;
+}
+
+a,
+a:visited {
+  color: $link-blue;
+}
+
+h1 {
+  color: $nav-color;
+}
+h2,h3,h4,h5 {
+  color: $heading-color;
+}
+
+.header {
+  background-color: $nav-background;
+  background-color: rgba($nav-background, $opacity);
+}
+
+.menu-button {
+  background-color: $nav-color;
+  border-color: $nav-color;
+}
+
+.burger-icon {
+  &, &::before, &::after {
+    background-color: $nav-background;
+  }
+}
+
+.menu-button:hover {
+  @include box-shadow(transparent, 0 0);
+  .burger-icon {
+    &, &::before, &::after {
+      background-color: $link-hover;
+    }
+  }
+  &.is-active .burger-icon {
+    background-color: transparent;
+  }
+}
+
+.nav {
+  background-color: $link-color; 
+  background-color: rgba($link-color, $opacity); 
+}
+
+.nav a {
+  color: white;
+}
+
+.nav a:hover {
+  color: $link-hover;
+}
+
+a.button,
+button {
+  background-color: $off-black;
+  color: $green;
+  &:hover {
+    color: $link-color;
+  }
+}
+
+input, textarea {
+  border-color: $gray;
+  @include transition;
+  @include box-shadow(transparent, 0 0);
+
+  &:active, &:focus {
+    background-color: $light-yellow;
+    border-color: $link-blue;
+  }
+
+  &:hover {
+    @include box-shadow(transparent, 0 0);
+
+    &:active, &:focus {
+      @include box-shadow($blue_alt, 0 0 3px);
+    }
+  }
+
+}
+
+.call-to-action {
+  background-color: $yellow;
+  background-color: rgba($yellow, .5);
+}

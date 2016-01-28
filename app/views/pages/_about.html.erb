@@ -1,0 +1,29 @@
+<h2>About <%= @brand.title %></h2>
+
+<p><%= @brand.description %></p>
+
+<!--
+<button class="prev-no-style">&laquo;</button>
+<button class="next-no-style">&raquo;</button>
+-->
+
+<div class='relative'>
+  <ul class='gallery unstyled-list' data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
+    <li>
+      <img src='http://lorempixel.com/960/480/nightlife/1' alt=''>
+      <p><%= @brand.caption %></p>
+    </li>
+    <li>
+      <img src='http://lorempixel.com/960/480/nightlife/2' alt=''>
+      <p><%= @brand.caption_2 %></p>
+    </li>
+    <li>
+      <img src='http://lorempixel.com/960/480/nightlife/3' alt=''>
+      <p><%= @brand.caption %></p>
+    </li>
+    <li>
+      <img src='http://lorempixel.com/960/480/nightlife/4' alt=''>
+      <p><%= @brand.caption_2 %></p>
+    </li>
+  </ul>
+</div>

@@ -12,4 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//- require_tree .  // disabled, in favor of including js files individually
+
+// vendor scripts
+//= require slick.js
+
+// my scripts!
+//= require _utils
+//= require _navigate
+//= require _control_video
+//= require _detect
+//= require _order
+//= require _slide_gallery

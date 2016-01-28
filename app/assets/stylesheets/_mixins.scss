@@ -1,0 +1,30 @@
+@mixin position($type: relative, $top:null, $right:null, $bottom:null, $left:null) {
+  position: $type;
+  @if $top { top: $top }
+  @if $right { right: $right; }
+  @if $bottom { bottom: $bottom; }
+  @if $left { left: $left; }
+}
+
+@mixin box-shadow($color, $values) {
+  -webkit-box-shadow: $color $values;
+          box-shadow: $color $values;
+}
+
+@mixin fancy-hover($color:#1af, $radius:9px) {
+  &:hover {
+    @include box-shadow($color, 0 0 $radius)
+  }
+}
+
+@mixin transform($transform:scale(2.0)) {
+  -webkit-transform: $transform;
+      -ms-transform: $transform;
+          transform: $transform;
+}
+
+@mixin transition($property:all, $ratio:0.19s, $ease:ease-out) {
+  -webkit-transition: $property $ratio $ease;
+          transition: $property $ratio $ease;
+}
+

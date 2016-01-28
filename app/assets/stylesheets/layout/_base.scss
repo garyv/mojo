@@ -1,0 +1,58 @@
+// layout varaibles
+$radius: 5px;
+$spacing: 10px;
+
+// basic elements
+img, video {
+  display: block;
+  max-width: 100%;
+  min-height: 60px;
+  height: auto;
+}
+
+p {
+  margin-bottom: $spacing;
+  margin-top: $spacing;
+}
+
+i {
+  font-style: normal;
+}
+
+// remove dotted lines
+a:focus, object:focus, embed:focus { 
+  outline: none; 
+  -moz-outline-style: none; 
+}
+
+
+// utility classes
+.hide {
+  display: none;
+}
+.accessible-hide {
+  text-indent: -999em;
+}
+
+.center-wrap {
+  max-width: 40em;
+  margin: 0 auto;
+}
+
+.relative {
+  position: relative;
+}
+
+.unstyled-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.section-gap {
+  margin-bottom: 60px;
+}
+
+.side-spacing {
+  margin-left: $spacing;
+  margin-right: $spacing;
+}

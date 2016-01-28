@@ -1,0 +1,103 @@
+
+<h2>Shop</h2>
+
+<div class='row'>
+  
+  <div class='col third'>
+    <div class='picture'>
+      <%= image_tag 'bottle_small.jpg', alt: '' %>
+    </div>
+  </div>
+  <div class='col two-thirds'>
+    <div class='side-spacing'>
+      <h4>
+        <%= @brand.title %>
+      </h4>
+
+      <h3 class='price'>
+        US <%= number_to_currency @brand.price %>
+      </h3>
+
+      <%= link_to 'Order Now!', '#new_order', class: 'button order-button', id: 'order-button' %>
+
+      <div class='description'>
+        <%= simple_format @brand.description %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class='checkout'>
+
+  <%= form_for @order, {url: 'new', class: 'order-form'} do |f| %>
+    <ul class='row'>
+      <li>
+        <h2>Customer Information</h2>
+      </li>
+      <li>
+        <%= f.label :email %>
+        <%= f.email_field :email, required: :required %>
+      </li>
+      <li>
+        <h2>Shipping Address</h2>
+      </li>
+      <li class='grid-6-12'>
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, required: :required %>
+      </li>
+      <li class='grid-6-12'>
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, required: :required %>
+      </li>
+      <li>
+        <%= f.label :address %>
+        <%= f.text_field :address, required: :required%>
+      </li>
+      <li>
+        <%= f.label :address_2 %>
+        <%= f.text_field :address_2 %>
+      </li>
+      <li>
+        <h2>Payment method</h2>
+        <p>All transactions are secure and encrypted. Credit card information is never stored.</p>
+      </li>
+      <li>
+        <%= f.label :card_name, "Name on card" %>
+        <%= f.text_field :card_name, required: :required %>
+      </li>
+      <li class='grid-6-12'>
+        <%= f.label :card_number %>
+        <%= f.text_field :card_number, required: :required %>
+      </li>
+      <li class='grid-3-12'>
+        <%= f.label :card_expires, 'MM/YY' %>
+        <%= f.text_field :card_expires, required: :required %>
+      </li>
+      <li class='grid-3-12'>
+        <%= f.label :card_verification_code, 'CW', title: "3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front." %>
+        <%= f.text_field :card_verification_code, required: :required %>
+      </li>
+      <li class='grid-6-12'>
+        <a href='/shop'>
+          <i class='back-arrow'>&laquo;</i> Return to cart
+        </a>
+      </li>
+      <li class='grid-6-12'>
+        <%= f.button type: 'submit', class: 'button' do %>
+          Give Me My Mojo!
+        <%- end %>
+      </li>
+    </ul>
+
+  <% end %>
+</div>
+
+<div class='success' id='success' style='display: none'>
+  <h2>Success</h2>
+  <p>We just sent you a confirmation email.</p>
+  <p>Expect your order to arrive in 3-5 days!</p>
+  <p>
+    <small>Note: this is just a test.</small>
+  </p>
+</div>

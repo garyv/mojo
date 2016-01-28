@@ -1,10 +1,11 @@
-# ruby -Itest/ test/integration/home_integration_test.rb
+#$ ruby -Itest/ test/integration/home_integration_test.rb
 require 'test_helper'
 
 class HomeIntegrationTest < ActionDispatch::IntegrationTest
   
   def setup
-    #@user = FactoryGirl.create :user
+    visit "/"
+    @brand = Brand.new
   end
 
   test "the truth" do
@@ -12,10 +13,14 @@ class HomeIntegrationTest < ActionDispatch::IntegrationTest
   end
 
   test "home page" do
-    visit "/"
     within "h1" do
-      assert has_content?(site_name), "site name in h1"
+      assert has_content?(@brand.title), "home has site name in h1 tag"
     end
+  end
+
+  test "navigation" do
+    assert has_css?(navigation), "home has a navigation"
+    assert has_css?("nav") || has_css?("[role='navigation']"), "home has a semantic navigation"
   end
 
 end

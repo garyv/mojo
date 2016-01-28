@@ -1,0 +1,73 @@
+.form-spacing {
+  padding: $spacing; 
+} 
+
+form {
+  > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  > ul li {
+    @extend .form-spacing;
+    list-style: none;
+    margin: 0;
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  label {
+    display: block;
+  }
+  
+  li { 
+    @extend .form-spacing;
+    padding: $spacing; 
+    display: block;
+    width: 100%
+  }
+  
+  .col { 
+
+    input,
+    textarea {
+      width: 100%;
+    }
+  }
+}
+
+li input {
+  width: 100%;
+}
+
+input, textarea {
+  border-radius: $radius;
+  border-style: solid;
+  padding: 6px 9px;
+}  
+   
+
+.button {
+  border-radius: $radius;
+  border-style: outset;
+  border-width: 0;
+  padding: 3px 16px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  text-shadow: rgba(0,0,0,0.45) 0 -1px 0;
+  
+  @include transition;
+  @include fancy-hover;
+}
+
+.has-js {
+  .checkout,
+  .checkout-2,
+  .checkout-2 {
+    display: none;    
+  }
+}

@@ -1,0 +1,25 @@
+/* typography */
+body {
+  font-family: lucida grande regular, lucida sans unicode, sans-serif;
+  line-height: 1.5;
+}
+
+.header-font {
+  text-transform: lowercase;
+  font-weight: normal;
+}
+h1, h2, h3, h4,
+.button {
+  @extend .header-font;
+}
+
+.nav a {
+  font-size: 22px / 16px * 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.large-button {
+  font-size: 22px / 16px * 1em;
+}

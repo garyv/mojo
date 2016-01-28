@@ -1,0 +1,43 @@
+.header {
+  height: 50px;
+  position: fixed;
+  top: 10px;
+  left: 0;
+  right: 0;
+  z-index: 888;
+}
+
+.logo h1 {
+  height: 50px;
+  line-height: 50px;
+  margin: 0 0 0 10px;
+}
+
+.menu-button {
+  display: inline-block;
+  padding: .5em;
+  border: 1px solid;
+  @include position(absolute, $right: 15px, $top: 5px);
+}
+
+.burger-icon {
+  @include burger(25px, 3px, 5px, #444);
+}
+
+.menu-button.is-active .burger-icon {
+  @include burger-to-cross;
+}
+
+.has-js .nav {
+  display: none
+}
+
+.nav {
+  float: right;
+  max-width: 600px;
+  padding: 5px;
+}
+.nav a {
+  display: block;
+  padding: 3px 15px;
+}
