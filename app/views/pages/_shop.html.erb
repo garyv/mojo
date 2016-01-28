@@ -1,34 +1,51 @@
-
-<h2>Shop</h2>
-
-<div class='row'>
+<div data-path='/shop' id='cart'>
   
-  <div class='col third'>
-    <div class='picture'>
-      <%= image_tag 'bottle_small.jpg', alt: '' %>
-    </div>
-  </div>
-  <div class='col two-thirds'>
-    <div class='side-spacing'>
-      <h4>
-        <%= @brand.title %>
-      </h4>
+  <div class='row'>
+    
+    <div class='grid-8-12 right'>
+      
+      <div class='side-spacing'>
+        <h2>Shop <%= @brand.title %></h2>
 
-      <h3 class='price'>
-        US <%= number_to_currency @brand.price %>
-      </h3>
+        <div class='row'>
+          <div class='col half'>
+            <h3>Quantity</h3>
+          </div>
+          <div class='col half'>
+            <h3>Price</h3>
+          </div>
+          <div class='col half'>
+            <form action='#' class='quantity-form' id='quantity_form' >
+              <input type='number' value='1' />
+            </form>
+          </div>
+          <div class='col half'>
+            <h3 class='price' id='price'><%= number_to_currency @brand.price %></h3>
+          </div>
+        </div>
 
-      <%= link_to 'Order Now!', '#new_order', class: 'button order-button', id: 'order-button' %>
+        <%= link_to 'Order Now!', '#new_order', class: 'button order-button', id: 'order-button' %>
 
-      <div class='description'>
-        <%= simple_format @brand.description %>
+        <div class='description'>
+          <%= simple_format @brand.description %>
+        </div>
       </div>
     </div>
+
+
+    <div class='grid-4-12'>
+      <div class='picture'>
+        <%= image_tag 'bottle_small.jpg', alt: '', srcset: "#{image_url('bottle.jpg')} 2x" %>
+        <!-- using native srcset attribute to support retina display -->
+      </div>
+    </div>
+
   </div>
 
 </div>
 
-<div class='checkout'>
+
+<div class='checkout center-wrap' id='checkout'>
 
   <%= form_for @order, {url: 'new', class: 'order-form'} do |f| %>
     <ul class='row'>
@@ -44,18 +61,18 @@
       </li>
       <li class='grid-6-12'>
           <%= f.label :first_name %>
-          <%= f.text_field :first_name, required: :required %>
+          <%= f.text_field :first_name, required: :required, data: {'parsley-minlength' => 2} %>
       </li>
       <li class='grid-6-12'>
           <%= f.label :last_name %>
-          <%= f.text_field :last_name, required: :required %>
+          <%= f.text_field :last_name, required: :required, data: {'parsley-minlength' => 2} %>
       </li>
       <li>
         <%= f.label :address %>
-        <%= f.text_field :address, required: :required%>
+        <%= f.text_field :address, required: :required, data: {'parsley-minlength' => 5} %>
       </li>
       <li>
-        <%= f.label :address_2 %>
+        <%= f.label :address_2, 'Address line 2' %>
         <%= f.text_field :address_2 %>
       </li>
       <li>
@@ -64,27 +81,29 @@
       </li>
       <li>
         <%= f.label :card_name, "Name on card" %>
-        <%= f.text_field :card_name, required: :required %>
+        <%= f.text_field :card_name, required: :required, data: {'parsley-minlength' => 5} %>
       </li>
       <li class='grid-6-12'>
         <%= f.label :card_number %>
-        <%= f.text_field :card_number, required: :required %>
+        <%= f.text_field :card_number, autocomplete: 'off', required: :required, data: {'parsley-length' => '[13, 26]', 'parsley-type' => "number" } %>
       </li>
       <li class='grid-3-12'>
         <%= f.label :card_expires, 'MM/YY' %>
-        <%= f.text_field :card_expires, required: :required %>
+        <%= f.text_field :card_expires, required: :required, data: {'parsley-minlength' => 5, 'parsley-maxlength' => 5, 'parsley-pattern' => '/\d\d\/\d\d/'} %>
       </li>
       <li class='grid-3-12'>
         <%= f.label :card_verification_code, 'CW', title: "3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front." %>
-        <%= f.text_field :card_verification_code, required: :required %>
+        <%= f.text_field :card_verification_code, required: :required, data: {'parsley-length' => '[3, 4]', 'parsley-type' => "number"} %>
       </li>
+    </ul>
+    <ul>
       <li class='grid-6-12'>
         <a href='/shop'>
           <i class='back-arrow'>&laquo;</i> Return to cart
         </a>
       </li>
       <li class='grid-6-12'>
-        <%= f.button type: 'submit', class: 'button' do %>
+        <%= f.button type: 'submit', class: 'button max-size-button' do %>
           Give Me My Mojo!
         <%- end %>
       </li>
@@ -93,11 +112,18 @@
   <% end %>
 </div>
 
-<div class='success' id='success' style='display: none'>
+<div class='success center-wrap' id='success' style='display: none'>
   <h2>Success</h2>
   <p>We just sent you a confirmation email.</p>
   <p>Expect your order to arrive in 3-5 days!</p>
   <p>
     <small>Note: this is just a test.</small>
   </p>
+
+  <div class='music hide'>
+    <p>
+      While you wait, please groove to this 
+      <a href='/music/it_was_a_good_day_loop_5x.mp3'>music</a>
+    </p>
+  </div>
 </div>

@@ -1,3 +1,34 @@
+== MOJO
+
+It's a standard rails app, built using ruby version 2.2.2p95.
+All dependencies are in the Gemfile.
+Run "bundle install" to install all the dependencies.
+bundle exec rails server will boot the server.
+bundle exec rake will run the test suite.
+
+== THE CHALLENGE
+
+You have invented the greatest beverage known to mankind and only you have the secret recipe to produce it. The entire world wants your beverage and are willing to embrace your bold (Tesla-inspired) direct to consumer sales & marketing approach. 
+
+Create a lightweight single-page website where your global audience would be able purchase your wunder-beverage and have it shipped directly to their location. 
+
+Please do not use bootstrap or themes. 
+
+This challenge is intended to show your front-end skills, all features you design and build should be front-end only and can be mocked/stubbed. 
+
+For example, we would like to see how you design and implement a purchase form, but do not expect it to hit any external service or backend.
+
+Please include:
+1 ) Instructions to setup and run your wunder-beverage website locally 
+2 ) For CSS: Use SCSS for styling 
+3 ) If you have experience with Ruby on Rails, we would love to see you show it off by doing the challenge in a rails environment.
+
+Important Notes:
+1 ) Email us a zip file of your complete project to: [...]
+2 ) Have fun! If you would like to add additional aspects to your wunder-beverage site feel free to do so.
+3 ) You don't have to call it the wunder-beverage, you can give it your own flair. (I actually encourage it!)
+
+
 == README
 
 This README would normally document whatever steps are necessary to get the

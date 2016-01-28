@@ -17,33 +17,6 @@ class ActiveSupport::TestCase
     puts "** " * 99; puts current_path
   end
 
-  # TODO - remove this
-  #
-
-  # def assert_link_then_click link_text
-  #   assert has_link? link_text
-  #   click_link link_text
-  # end
-
-  # def assert_current_path_is expected_path
-  #   assert_equal expected_path, current_path
-  # end
-
-  #def submit_sign_in_form
-  #  @user ||= FactoryGirl.create :user
-  #  fill_in 'Email', :with => @user.email
-  #  fill_in 'Password', :with => @user.password
-  #  click_on 'Sign in'
-  #end
-  #def sign_in
-  #  visit admin_path
-  #  within sign_in_form do
-  #    submit_sign_in_form
-  #  end
-  #end
-
-
-
   def teardown
     Capybara.reset_sessions!
     # This is because capabara acts like a web browser, with cookies and history

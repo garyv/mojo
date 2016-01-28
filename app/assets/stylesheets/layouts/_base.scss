@@ -20,7 +20,7 @@ i {
 }
 
 // remove dotted lines
-a:focus, object:focus, embed:focus { 
+a:focus, button:focus, audio:focus { 
   outline: none; 
   -moz-outline-style: none; 
 }
@@ -55,4 +55,9 @@ a:focus, object:focus, embed:focus {
 .side-spacing {
   margin-left: $spacing;
   margin-right: $spacing;
+}
+
+.footer {
+  clear: both;
+  padding-top: $spacing;
 }

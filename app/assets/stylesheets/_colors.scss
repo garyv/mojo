@@ -3,8 +3,10 @@
 // pure color variables
 $blue: #00b8ff;
 $blue-alt: #06c;
+$error-red: #e9322d;
 $gray: #555;
 $green: #8dd92e;
+$light-gray: #dedede;
 $light-yellow: #ffd;
 $link-blue: #2a9dcc;
 $off-black: #2d2b22;
@@ -12,14 +14,14 @@ $off-white: #f2f7fe;
 $orange: #fd971e;
 $peach: #f4b35b;
 $red: #dc1528;
-$yellow: #ffee00;
+$yellow: #fe0;
 
 $opacity: 0.88;
 
 // functional color variables
 $nav-background: $green;
 $nav-color: $off-black;
-$link-color: $blue;
+$link-color: $link-blue;
 $link-hover: $yellow;
 $page-background: $off-white;
 $system-color: $off-black;
@@ -33,7 +35,13 @@ body {
 
 a,
 a:visited {
-  color: $link-blue;
+  color: $link-color;
+  border-color: $link-color;
+
+  &:hover {
+    color: $blue-alt;
+    border-color: $blue-alt;
+  }
 }
 
 h1 {
@@ -78,6 +86,7 @@ h2,h3,h4,h5 {
 
 .nav a {
   color: white;
+  //@include transition(color);
 }
 
 .nav a:hover {
@@ -111,9 +120,33 @@ input, textarea {
     }
   }
 
+  &.parsley-error {
+    border-color: $error-red;
+  }
+
 }
 
 .call-to-action {
   background-color: $yellow;
   background-color: rgba($yellow, .5);
+}
+
+.price {
+  @include transition(background-color, .5s);
+  border-radius: $radius;
+  background-color: $off-white;
+}
+
+.highlight {
+  background-color: $yellow;
+}
+
+
+.parsley-errors-list {
+  background-color: $light-gray;
+  border-color: $error-red;
+  color: black;
+  li::before {
+    color: $error-red;
+  }
 }

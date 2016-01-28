@@ -1,9 +1,10 @@
-<div class='relative'>
-  <video autoplay loop height='720' poster='images/placeholder.jpg' preload='auto' width='1280'>
+<div class='video-background'>
+  <!-- native html video player, with mp4 & webm formats, and a fallback link to video file -->
+  <video autoplay loop height='720' poster="<%= image_url( 'video_placeholder.jpg' ) %>" preload='auto' width='1280'>
     <source src='videos/thirst_inducer.mp4' type='video/mp4'>
-    <!-- <source src='videos/thirst_inducer_hifi.webm' type='video/webm'> -->
+    <source src='videos/thirst_inducer.webm' type='video/webm'>
     <a href='videos/thirst_inducer.mp4'>
-      <img alt='Play Video' src='images/placeholder.jpg'>
+      <%= image_tag 'video_placeholder.jpg', alt: 'Play Video' %>
     </a>
   </video>
   <div class='video-controls'>

@@ -11,4 +11,9 @@
     $html.addClass('has-html5');
   }
 
+  // detect 2d css transform support
+  if (getSupportedTransform()) {
+    $html.addClass('has-transforms')
+  }
+
 })();

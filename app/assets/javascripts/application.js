@@ -14,8 +14,9 @@
 //= require jquery_ujs
 //- require_tree .  // disabled, in favor of including js files individually
 
-// vendor scripts
+// from /vendor/assets/javascripts
 //= require slick.js
+//= require parsley.js
 
 // my scripts!
 //= require _utils
@@ -24,3 +25,4 @@
 //= require _detect
 //= require _order
 //= require _slide_gallery
+//= require _play_music

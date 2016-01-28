@@ -1,5 +1,4 @@
-jQuery(function($){
+(function(){
   var gallery = $('.gallery');
   gallery.slick();
-  log( gallery );
-});
+})();

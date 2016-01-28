@@ -17,7 +17,7 @@ class Brand
   end
 
   def price
-    "19.70"
+    "9.20"
   end
   
 end

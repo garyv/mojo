@@ -32,3 +32,19 @@ $.SVGDetect = function( callback ) {
     $( document ).trigger( 'SVGDetected' );
   });
 };
+
+// detect if browser supports 2d css transforms
+var getSupportedTransform = function() {
+  var prefixes = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' ');
+  var div = document.createElement('div');
+  for(var i = 0; i < prefixes.length; i++) {
+    if(div && div.style[prefixes[i]] !== undefined) {
+      return prefixes[i];
+    }
+  }
+  return false;
+};
+
+var moneyFormat = function(amount) {
+  return '$' + amount.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}

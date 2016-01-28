@@ -20,6 +20,7 @@ form {
 
   label {
     display: block;
+    clear: left;
   }
   
   li { 
@@ -30,7 +31,6 @@ form {
   }
   
   .col { 
-
     input,
     textarea {
       width: 100%;
@@ -46,8 +46,9 @@ input, textarea {
   border-radius: $radius;
   border-style: solid;
   padding: 6px 9px;
+  position: relative;
+  z-index: 2;
 }  
-   
 
 .button {
   border-radius: $radius;
@@ -63,11 +64,33 @@ input, textarea {
   @include transition;
   @include fancy-hover;
 }
+.max-size-button {
+  width: 100%;
+}
 
 .has-js {
   .checkout,
-  .checkout-2,
   .checkout-2 {
     display: none;    
+  }
+}
+
+.parsley-errors-list {
+  border: 1px solid;
+  border-radius: $radius;
+  list-style: none;
+  margin-left: 4px;
+  margin-top: -6px;
+  max-width: 80%;
+  min-width: 9.5em;
+  padding: 2px $spacing;
+  position: relative;
+  li {
+    padding-right: 0;
+  }
+  li::before {
+    content: '*';
+    @include position( absolute, $left: 7px );
+    font-size: 19px;
   }
 }

@@ -5,6 +5,7 @@ body {
 }
 
 .header-font {
+  font-family: "Raleway", sans-serif;
   text-transform: lowercase;
   font-weight: normal;
 }
@@ -13,13 +14,38 @@ h1, h2, h3, h4,
   @extend .header-font;
 }
 
+h1 { font-size: 29px / 16px * 1em; }
+h2 { font-size: 32px / 16px * 1em; }
+h3 { font-size: 26px / 16px * 1em; }
+h4 { font-size: 21px / 16px * 1em; }
+
+.checkout h2 {
+  font-size: 26px / 16px * 1em;
+}
+
+a {
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+
 .nav a {
   font-size: 22px / 16px * 1em;
+  letter-spacing: 3px;
   text-decoration: none;
   text-transform: uppercase;
   text-align: right;
 }
 
-.large-button {
+.large-button,
+.max-size-button {
   font-size: 22px / 16px * 1em;
+}
+
+.parsley-errors-list {
+  font-size: 14px / 16px * 1em;
+  font-weight: 300;
+}
+
+.center-text {
+  text-align: center;
 }

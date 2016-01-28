@@ -1,0 +1,45 @@
+.gallery {
+  position: relative
+}
+
+.slick-arrow {
+  border-width: 0;
+  background-color: transparent;
+  color: transparent;
+  $size: 60px;
+  @include position(absolute, $top: 50%, $right: -1px, $width: $size, $height: $size);
+  margin-top: $size / -2;
+
+  opacity: .62;
+  @include transition(opacity);
+
+  &:hover {
+    color: transparent;
+    opacity: 1;
+  }
+}
+
+// re-using the next button graphic as a previous button, using a css rotation.
+.slick-prev {
+  display: none !important;
+
+  .has-transforms & {
+    display: block !important;
+    @include transform( rotate(180deg) );
+    @include position(absolute, $left: -1px, $right: auto);
+    z-index: 4;
+  }
+}
+
+
+$middle-break-point: 600px / 16px * 1em;
+
+@media all and (min-width: $middle-break-point) {
+  $distance: -45px;
+  .slick-next {
+    right: $distance;
+  }
+  .has-transforms .slick-prev {
+    left: $distance;
+  }
+}

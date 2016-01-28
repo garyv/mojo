@@ -1,9 +1,11 @@
-@mixin position($type: relative, $top:null, $right:null, $bottom:null, $left:null) {
+@mixin position($type: relative, $top:null, $right:null, $bottom:null, $left:null, $width: null, $height: null) {
   position: $type;
   @if $top { top: $top }
   @if $right { right: $right; }
   @if $bottom { bottom: $bottom; }
   @if $left { left: $left; }
+  @if $width { width: $width; }
+  @if $height { height: $height; }
 }
 
 @mixin box-shadow($color, $values) {

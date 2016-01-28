@@ -22,3 +22,27 @@ video {
     color: transparent;
   }
 }
+
+/* hide video from mobile devices */
+.video-background {
+  position: relative;
+  display: none
+}
+
+$large-break-point: 800px / 16px * 1em;
+
+@media all and (min-width: $middle-break-point) {
+  .video-background {
+    display: block;
+  }
+}
+
+audio {
+  display: block;
+  max-width: 80%;
+  width: 15em;
+  margin: $spacing 0;
+}
+
+
+
